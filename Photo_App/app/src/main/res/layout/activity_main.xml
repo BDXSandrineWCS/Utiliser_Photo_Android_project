@@ -4,18 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:padding="16dp">
+    tools:context=".MainActivity">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:srcCompat="@tools:sample/backgrounds/scenic[18]"
-            app:layout_constraintBottom_toTopOf="@id/buttonPhoto"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginBottom="8dp"
-            android:scaleType="centerInside"/>
+            app:layout_constraintBottom_toTopOf="@id/buttonPhoto"
+            tools:srcCompat="@tools:sample/backgrounds/scenic[18]" />
 
         <Button
             android:id="@+id/buttonPhoto"

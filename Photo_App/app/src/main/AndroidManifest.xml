@@ -4,7 +4,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="18"/>
     <uses-feature
-        android:name="android.hardware.camera2"
+        android:name="android.hardware.camera"
         android:required="true" />
     <application
         android:allowBackup="true"
@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <provider
-            android:authorities="com.wcs.photo.app.FileProvider"
+            android:authorities="com.wcs.photo.app.fileprovider"
 
             android:name="android.support.v4.content.FileProvider"
             android:exported="false"

@@ -51,10 +51,8 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             if ( null != photoFile){
-               // fileUri = FileProvider.getUriForFile(this, "com.wcs.photo.app.fileprovider",photoFile);
-              //  fileUri = FileProvider.getUriForFile(this, "com.wcs.photo.app.FileProvider",photoFile);
-             //   takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
-             //   takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
+                fileUri = FileProvider.getUriForFile(this, "com.wcs.photo.app.fileprovider",photoFile);
+               takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
                 startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
             }
         }
@@ -63,17 +61,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
-           // imageView.setImageURI(fileUri);
-            imageView.setImageBitmap(imageBitmap);
+            imageView.setImageURI(fileUri);
         }
     }
 
     private File createImageFile() throws IOException {
         String timeStamp = new SimpleDateFormat(getString(R.string.date_format)).format(new Date());
         String imgFileName = "JPEG_" + timeStamp + "_";
-       // File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile(imgFileName, ".jpg", storageDir);
         return image;
